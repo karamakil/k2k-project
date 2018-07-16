@@ -1,0 +1,149 @@
+{% load staticfiles %}
+<div class="container">
+	<h2 class="text-center text-uppercase">product CATEGORIES</h2>
+	<div class="parallax-gallery animated-arrows">
+
+		<!-- carousel-navigation-wrapper -->
+
+		<div class="carousel-navigation-wrapper">
+
+			<!-- carousel -->
+
+			<div class="parallax-gal-carousel">
+				<!-- carousel-content -->
+				<div class="parallax-gal-carousel-content">
+				
+				{% for o in categories_list %}
+					<div class="parallax-gal-slide  hover-squared {{ o.style }}" data-row="1" style="left: {{ o.left }}%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-01.jpg' %}" alt="img1 for categories "></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">{{ o.name }}</div>
+					</div>
+				 {% endfor %}
+					
+					<!--<div class="parallax-gal-slide  hover-squared sm" data-row="1" style="left: 96.3445%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-02.jpg' %}" alt="img2 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Kids Clothes</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared sm" data-row="1" style="left: 66.3445%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-03.jpg' %}" alt="img3 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Accessories</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="4" style="left: 165.861%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-04.jpg' %}" alt="img4 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Shoes</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="2" style="left: 149.517%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-05.jpg' %}" alt="img5 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Underwear</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="3" style="left: 237.689%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-16.jpg' %}" alt="img6 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Dresses</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared lg" data-row="3" style="left: 302.689%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-17.jpg' %}" alt="img7 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Bags</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="2" style="left: -35.4833%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-01.jpg' %}" alt="img8 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Men Suits</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared lg" data-row="1" style="left: 16.3445%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-02.jpg' %}" alt="img9 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Kids Clothes</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared lg" data-row="3" style="left: -27.311%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-03.jpg' %}" alt="img9 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Accessories</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="2" style="left: 29.5167%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-04.jpg' %}" alt=""></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Shoes</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared sm" data-row="4" style="left: -9.13877%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-05.jpg' %}" alt="img10 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Underwear</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="2" style="left: 99.5167%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-16.jpg' %}" alt="img11 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Dresses</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared lg" data-row="3" style="left: 52.689%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-17.jpg' %}" alt=""></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Bags</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="4" style="left: 120.861%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-01.jpg' %}" alt="img12 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Men Suits</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared sm" data-row="4" style="left: 250.861%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-02.jpg' %}" alt="img13 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Kids Clothes</div>
+					</div>
+					<div class="parallax-gal-slide  hover-squared med" data-row="4" style="left: 335.861%">
+						<div class="parallax-gal-image">
+							<a href=""><img src="{% static 'web/images/category-img-03.jpg' %}" alt="img14 for categories"></a>
+							<div class="caption"></div>
+						</div>
+						<div class="parallax-gal-caption">Accessories</div>
+					</div>
+				</div>-->
+				<!-- /carousel-content -->
+			</div>
+			<!-- /carousel -->
+
+			<div class="nav-arrow left slick-prev"></div>
+			<div class="nav-arrow right slick-next"></div>
+
+		</div>
+		<!-- /carousel-navigation-wrapper -->
+	</div>
+</div>

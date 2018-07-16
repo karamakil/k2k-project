@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+   <head>
+      <!-- Basic -->
+      <meta charset="utf-8">
+      <meta name="keywords" content="HTML5 Template" />
+      <meta name="description" content="WellDone - Responsive HTML5 Template">
+      <meta name="author" content="etheme.com">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="shortcut icon" href="{% static 'favicon.ico' %}" />
+            
+      <link rel="stylesheet" href="{% static 'web/font/style.css' %}"/>
+      <link rel="stylesheet" href="{% static 'web/vendor/waves/waves.css' %}"/>
+      <link rel="stylesheet" href="{% static 'web/vendor/slick/slick.css'%}" />
+      <link rel="stylesheet" href="{% static 'web/vendor/slick/slick-theme.css' %}"/>
+      <link rel="stylesheet" href="{% static 'web/vendor/bootstrap-select/bootstrap-select.css' %}"/>
+      <link rel="stylesheet" href="{% static 'web/vendor/parallax-carousel/pcarousel.min.css' %}" />
+      <link rel="stylesheet" href="{% static 'web/css/style.css' %}"/>
+      <link rel="stylesheet" href="{% static 'web/css/style-colors.css' %}"/>
+      
+      <link rel="stylesheet" href="{% static 'vendor/nouislider/nouislider.css' %}">
+      
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+      <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700' rel='stylesheet' type='text/css'>
+      
+      <link rel="stylesheet" type="text/css" href="{% static 'web/vendor/rs-plugin/css/settings.css' %}" media="screen" />
+      
+      <script src="{% static 'web/vendor/modernizr/modernizr.js' %}"></script>
+      
+      <title>K2K {% block title %}- Home {% endblock %} </title>
+      
+{% block 'css_block' %}  
+{% endblock %}
+      
+   </head>
+   <body>
+   
+   
+  <div id="body" class="frontpage"> 
+    <div id="body-inner">
+ 	
+ 	<!-- ==== HEADER ==== -->
+ 	{% block header %}
+		{% include "web/user_controls/header.html" %}  
+	{% endblock %}	
+	<!--/ ==== HEADER ==== -->
+	</div>
+	
+	<!-- ==== BODY ==== -->
+	{% block content %}
+	{% endblock %}	
+	<!--/ ==== BODY ==== -->
+	
+	
+	<!--/ ==== footer  ==== -->
+ 	{% block footer %}
+		{% include "web/user_controls/footer.html" %}  
+	{% endblock %}
+	<!--/ ==== footer ==== -->
+	</div>
+
+    <!-- Vendor --> 
+      
+      <!-- jQuery 1.10.1--> 
+      <script src="{%  static 'web/vendor/jquery/jquery.js' %}"></script> 
+      <!-- Bootstrap 3--> 
+      <script src="{% static 'web/vendor/bootstrap/bootstrap.min.js' %}"></script> 
+      
+      <!-- Specific Page Vendor --> 
+      <script src="{% static 'vendor/nouislider/nouislider.min.js' %} "></script> 
+      <script src="{% static 'web/vendor/waves/waves.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/slick/slick.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/bootstrap-select/bootstrap-select.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/parallax/jquery.parallax-1.1.3.js' %}"></script> 
+      <script src="{% static 'web/vendor/waypoints/jquery.waypoints.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/waypoints/sticky.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/doubletaptogo/doubletaptogo.js' %}"></script> 
+      <script src="{% static 'web/vendor/isotope/isotope.pkgd.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/countdown/jquery.plugin.min.js' %}"></script> 
+      <script src="{% static 'web/vendor/countdown/jquery.countdown.min.js' %}"></script> 
+     
+      <!-- jQuery form validation --> 
+      <script src="{% static 'web/vendor/form/jquery.form.js' %}"></script> 
+      <script src="{% static 'web/vendor/form/jquery.validate.min.js' %}"></script> 
+     
+      <!-- Custom --> 
+      <script src="{% static 'web/js/custom.js' %}"></script> 
+      
+      <!-- Parallax carousel / JS -->
+      <script src="{% static 'web/vendor/parallax-carousel/pcarousel-plugin.min.js' %}"></script>
+      <script src="{% static 'web/vendor/parallax-carousel/pcarousel-init.min.js' %}"></script>
+      
+      <!-- SLIDER REVOLUTION 4.x SCRIPTS  --> 
+      <script type="text/javascript" src="{% static 'web/vendor/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script> 
+      <script type="text/javascript" src="{% static 'web/vendor/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script> 
+     
+      <script type="text/javascript">
+         jQuery(document).ready(function() {
+         
+         	jQuery('.tp-banner').show().revolution(
+         	{
+         		dottedOverlay:"none",
+         		delay:16000,
+         		startwidth:1170,
+         		startheight:700,
+         		hideThumbs:200,
+         		hideTimerBar:"on",
+         		
+         		thumbWidth:100,
+         		thumbHeight:50,
+         		thumbAmount:5,
+         		
+         		navigationType:"none",
+         		navigationArrows:"",
+         		navigationStyle:"",
+         		
+         		touchenabled:"on",
+         		onHoverStop:"on",
+         		
+         		swipe_velocity: 0.7,
+         		swipe_min_touches: 1,
+         		swipe_max_touches: 1,
+         		drag_block_vertical: false,
+         								
+         		parallax:"mouse",
+         		parallaxBgFreeze:"on",
+         		parallaxLevels:[7,4,3,2,5,4,3,2,1,0],
+         								
+         		keyboardNavigation:"off",
+         		
+         		navigationHAlign:"center",
+         		navigationVAlign:"bottom",
+         		navigationHOffset:0,
+         		navigationVOffset:20,
+         
+         		soloArrowLeftHalign:"left",
+         		soloArrowLeftValign:"center",
+         		soloArrowLeftHOffset:20,
+         		soloArrowLeftVOffset:0,
+         
+         		soloArrowRightHalign:"right",
+         		soloArrowRightValign:"center",
+         		soloArrowRightHOffset:20,
+         		soloArrowRightVOffset:0,
+         				
+         		shadow:0,
+         		fullWidth:"off",
+         		fullScreen:"on",
+         
+         		spinner:"",
+         		
+         		stopLoop:"off",
+         		stopAfterLoops:-1,
+         		stopAtSlide:-1,
+         
+         		shuffle:"off",
+         		
+         		autoHeight:"off",						
+         		forceFullWidth:"off",						
+         							
+         		hideThumbsOnMobile:"off",
+         		hideNavDelayOnMobile:1500,						
+         		hideBulletsOnMobile:"off",
+         		hideArrowsOnMobile:"off",
+         		hideThumbsUnderResolution:0,
+         		
+         		hideSliderAtLimit:0,
+         		hideCaptionAtLimit:0,
+         		hideAllCaptionAtLilmit:0,
+         		startWithSlide:0,
+         		fullScreenOffsetContainer: ".header"	
+         	});
+         	
+         					
+         });	//ready
+         
+      </script>
+   </body>
+</html>
+

@@ -1,0 +1,103 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<!-- <link rel="shortcut icon" href="{%  static 'images/muzeit_logo.ico' %}"> -->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	
+	<title>k2k</title>
+	
+	<!-- ==== CSS ==== -->
+<!-- 	<link href="{% static 'admin/css/plugins/jQueryUI/jquery-ui-1.10.4.custom.min.css' %}" rel="stylesheet" > -->
+	<link href="{% static 'admin/css/plugins/jqGrid/ui.jqgrid.css' %}" rel="stylesheet" >
+	<link href="{% static 'admin/css/bootstrap.min.css' %}" rel="stylesheet" >
+	<link href="{% static 'admin/font-awesome/css/font-awesome.css' %}" rel="stylesheet" >
+	<link href="{% static 'admin/css/animate.css' %}" rel="stylesheet" >
+	<link href="{% static 'admin/css/style.css' %}" rel="stylesheet" >
+	<link href="{% static 'admin/css/bootstrap-fileupload.css' %}" rel="stylesheet" >
+	<link href="{% static 'admin/css/plugins/datapicker/datepicker3.css' %}" rel="stylesheet" >
+	
+	{% block stylePage %}
+	{% endblock %}
+	
+	
+	<script src="{% static 'admin/js/jquery-2.1.1.js' %}"></script>
+</head>
+
+<body>
+	
+	<div class="wrapper">
+
+		<!-- ==== SIDEMENU ==== -->
+		{% block sidemenu %} 
+			{% include "admin/main_controls/sidemenu.html" %}  
+		{% endblock %}
+		<!--/ SIDEMENU -->
+		
+		<div id="page-wrapper" class="gray-bg">
+			<!-- ==== Header ==== -->
+			{% block header %} 
+				{% include "admin/main_controls/header.html" %} 
+			{% endblock %}
+			<!--/ header -->
+	
+	
+			<!-- ==== CONTENT ==== -->
+			{% block content %} {% endblock %}
+			<!--/ CONTENT -->
+			
+			<!-- ==== Footer ==== -->
+			{% block footer %} 
+				{% include "admin/main_controls/footer.html" %} 
+			{% endblock %}
+			<!--/ Footer -->
+		</div>
+
+	</div>
+	<!-- MODAL  -->
+	<div class="modal fade" id="main_modal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+    	    <div class="modal-content">
+    	    </div>
+    	</div>
+	</div>
+	<!-- END MODAL -->
+	
+	<!-- ==== Javascript  ==== -->
+	<script src="{% static 'admin/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'admin/js/jquery.validate.min.js' %}"></script>
+	<script src="{% static 'admin/js/plugins/metisMenu/jquery.metisMenu.js' %}"></script>
+	<script src="{% static 'admin/js/plugins/datapicker/bootstrap-datepicker.js' %}"></script>
+	<script src="{% static 'admin/js/plugins/slimscroll/jquery.slimscroll.min.js' %}"></script>
+	<script src="{% static 'admin/js/plugins/easypiechart/jquery.easypiechart.js' %}"></script>
+	
+	<!-- Custom and plugin javascript -->
+	<script src="{% static 'admin/js/inspinia.js' %}"></script>
+	<script src="{% static 'admin/js/plugins/pace/pace.min.js' %}"></script>
+	
+	<script src="{% static 'admin/js/plugins/jqGrid/i18n/grid.locale-en.js' %}"></script>
+	<script src="{% static 'admin/js/jquery.jqGrid.min.js' %}"></script>
+	<script src="{% static 'admin/js/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+	<script src="{% static 'admin/js/main.js' %}"></script>
+	
+	{% block scriptPage %}  
+	{% endblock %}
+    <!--/ Javascript  -->
+
+	<script type="text/javascript">
+	$(function() {
+		main_module.set_active_menu_item('{{ request.path }}');
+	});
+	</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,98 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>{{ category }}</h2>
+        <ol class="breadcrumb">
+            <li>
+                 <a href="#">Home</a>
+            </li>
+            <li>
+                <a><strong>{{ category }}</strong></a>
+            </li>
+        </ol>
+    </div>
+</div>
+            
+<div class="wrapper wrapper-content  animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>{{ category }} Orders</h5>
+                </div>
+                <div class="ibox-content">
+                    <div class="jqGrid_wrapper">
+                        <table id="items_lit_tbl"></table>
+                        <div id="items_pager_list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block scriptPage %}  
+<script>
+	
+	var items_jqGrid = {
+			grid : null,
+			refresh_grid : function(){
+				$("#items_lit_tbl").trigger( 'reloadGrid' );
+			},
+			
+			init_grid : function(){
+				this.grid = $("#items_lit_tbl").jqGrid({
+					url: '{% url "get_order_data" %}',
+				   	datatype: "json",
+				 	shrinkToFit: true,
+				 	autowidth: true,
+				 	width: null,
+				 	sortable:true,
+				 	gridview: true,
+					// the colnames represent the columns labels or table headers
+				   	colNames:['created_ts','delivery_ts','user', 'test'],
+				   	colModel:[
+				   		{name:'created_ts', index:'created_ts',search: true,	sortable:true},
+				   		{name:'delivery_ts', index:'delivery_ts',search: true,	sortable:true},
+				   		{name:'user',index:'user', align:"center", search: true, sortable:true},
+				   		{name:'actions',index:'actions', align:"center", search: false, formatter: items_jqGrid.action_display, sortable:false}
+				   	],
+				   	
+				 	rowNum:10,
+				   	rowList:[10,20,30],
+				 	regional:'en',
+				 	pager: '#items_pager_list',
+				 	sortname: 'name',
+				    viewrecords: true,
+				    sortorder: "desc",
+				    height: "auto",
+				    gridComplete: items_jqGrid.grid_complete,
+				});
+				this.grid.jqGrid('filterToolbar', { searchOnEnter: true, enableClear: false });
+			},
+			
+			
+			action_display: function (cellvalue, options, rowObject){
+				var buttonStr = "<a class='btn btn-primary dim m-xs ' href='{% url 'order_item_page' %}?id="+rowObject.id+"'><i class='fa fa-pencil'></i></a>";
+				return buttonStr;
+			},
+	};
+	
+
+	
+	
+	
+	
+	$(function(){
+		items_jqGrid.init_grid();
+	});
+
+</script>
+{% endblock %}

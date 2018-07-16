@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %} 
+
+
+{% block content %}
+
+<div id="pageContent" class="page-content">
+
+	<!-- Slider section --> 
+	<section class="content" id="slider">
+		{% include "web/sections/main_slider.html" %}  
+	</section>
+	<!-- End Slider section --> 
+
+	<!-- Content section -->
+    <section class="content fullwidth">
+  		{% include "web/sections/second_slider.html" %}  
+    </section>
+	<!-- Content section -->		
+
+
+<!-- /card sections -->
+
+
+ <section class="content">
+     <div class="container">
+     
+     
+         <!-- Modal -->
+         <div class="modal quick-view zoom" id="quickView"  style="opacity: 1">
+             <div class="modal-dialog">
+                 <div class="modal-content"> testing modal </div>
+             </div>
+         </div>
+         <!-- /.modal -->
+         
+         
+         <!-- Filters -->
+         <section class="filters-by-category">
+             <div class="container">
+                 <ul class="option-set" data-option-key="filter">
+                     <li><a href="#filter" data-option-value="*" class="selected">All</a></li>
+                     <li><a href="#filter" data-option-value=".category1" class="">Sale</a></li>
+                     <li><a href="#filter" data-option-value=".category2" class="">New In Store</a></li>
+                     <li><a href="#filter" data-option-value=".category4" class="">Popular</a></li>
+                 </ul>
+             </div>
+         </section>
+         <!-- //end Filters --> 
+         
+         
+          <!-- //first card img --> 
+         <div class="products-grid products-listing products-col products-isotope four-in-row">
+         
+         	{% for o in items_list %}
+             <div class="product-preview-wrapper category1 category2">
+                 <div class="product-preview">
+                     <div class="product-preview__image">
+                         <a href="product.html"><img  src="static/web/images/products/product-1.jpg" alt="testing image"/></a>
+                     </div>
+                     <div class="product-preview__info text-center">
+                         <div class="product-preview__info__btns"><a href="#" class="btn btn--round"><span class="icon-ecommerce"></span></a> <a href="quick-view.html" class="btn btn--round btn--dark btn-quickview" data-toggle="modal" data-target="#quickView"><span class="icon icon-eye"></span></a></div>
+                         <div class="product-preview__info__title">
+                             <h2><a href="#"> {{ o.name }} </a></h2>
+                         </div>
+                         <div class="price-box ">
+                         	<span class="price-box__new">${{ o.new_price }} </span>
+                         	<span class="price-box__old">${{ o.price }}</span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+             
+         </div>
+     </div>
+ </section>
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+</div>
+
+{% endblock %}
+

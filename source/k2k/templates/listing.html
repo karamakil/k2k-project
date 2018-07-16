@@ -1,0 +1,348 @@
+{% extends 'base.html'%}
+{% load staticfiles %}
+{%load static%}
+
+{% block title %}- Shop {% endblock %}
+
+{% block content %}
+			
+	<div id="pageContent" class="page-content page-content--fill">
+			
+				<!-- Breadcrumb section -->
+				<section class="breadcrumbs  hidden-xs">
+					<div class="container">
+						<ol class="breadcrumb breadcrumb--wd pull-left">
+							<li><a href="#">Home</a></li>
+							<li class="active">listing items page </li>
+						</ol>
+					</div>
+				</section>
+				
+				
+								
+				
+				<section class="content">
+					<div class="container">
+						<div class="filters-row row">
+							<div class="col-sm-4 col-md-5 col-lg-3 col-1"> <a class="filters-row__view active link-grid-view icon icon-keyboard"></a> 
+							 <a class="btn btn--wd btn--with-icon btn--sm wave" id="showFilter"><span class="icon icon-filter"></span>Filter</a>
+							 <a class="btn btn--wd btn--with-icon btn--sm wave" id="showFilterMobile"><span class="icon icon-filter"></span>Filter</a> </div>
+							<div class="col-sm-8 col-md-7 col-lg-6 col-2">
+								<div class="filters-row__items">{{ total  }}Item(s)</div>
+								<div class="filters-row__select">
+									<label>Per Page: </label>
+									<div class="select-wrapper">
+										<select class="select--wd select--wd--sm">
+											<option>12</option>
+											<option>36</option>
+											<option>100</option>
+										</select>
+									</div>
+								</div>
+								<div class="filters-row__select">
+									<label>Sort: </label>
+									<div class="select-wrapper">
+										<select class="select--wd select--wd--sm">
+											<option>Position</option>
+											<option>Price</option>
+											<option>Rating</option>
+										</select>
+									</div>
+								</div>
+								<a href="#" class="icon icon-arrow-down active"></a><a href="#" class="icon icon-arrow-up"></a> 
+							</div>
+							<div class="col-lg-3 visible-lg col-3">
+								<ul class="pagination pull-right">
+									<li><a href="#"> << </a></li>
+									<li class="active"><a href="#">1</a></li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#"> >> </a></li>
+								</ul>
+							</div>
+						</div>
+						
+						
+						
+						
+						
+<div class="outer">
+	<div id="leftCol">
+		<div id="filtersCol" class="filters-col">
+			<div class="filters-col__close" id="filtersColClose"><a href="#" class="icon icon-clear"></a></div>
+			<div class="filters-col__select visible-xs">
+				<label>Per Page: </label>
+				<div class="select-wrapper">
+					<select class="select--wd select--wd--sm">
+						<option>12</option>
+						<option>36</option>
+						<option>100</option>
+					</select>
+				</div>
+			</div>
+			<div class="filters-col__select visible-xs">
+				<label>Sort: </label>
+				<div class="select-wrapper">
+					<select class="select--wd select--wd--sm">
+						<option>Position</option>
+						<option>Price</option>
+						<option>Rating</option>
+					</select>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">SHOPPING BY:</h4>
+				<div class="filters-col__collapse__content">
+					<ul class="filter-list">
+						<li>
+							<a href="#" class="icon icon-clear"></a> Price: <strong>$0.00 - $10,000.00</strong>
+						</li>
+						<li>
+							<a href="#" class="icon icon-clear"></a> Color: <strong>Black</strong>
+						</li>
+						<li>
+							<a href="#" class="icon icon-clear"></a> Size: <strong>10 (M)</strong>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">Category</h4>
+				<div class="filters-col__collapse__content">
+					<ul class="filter-list">
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox1">
+							<label for="checkBox1"> <span class="check"></span> <span class="box"></span> Party Dresses  (2) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox2">
+							<label for="checkBox2"> <span class="check"></span> <span class="box"></span> Playsuit  (8) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox3">
+							<label for="checkBox3"> <span class="check"></span> <span class="box"></span> Fun in the Sun  (11) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox4">
+							<label for="checkBox4"> <span class="check"></span> <span class="box"></span> Flirty Florals  (6) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox5">
+							<label for="checkBox5"> <span class="check"></span> <span class="box"></span> Maxis  (12) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox6">
+							<label for="checkBox6"> <span class="check"></span> <span class="box"></span> L.B.D  (2) </label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">Price</h4>
+				<div class="filters-col__collapse__content">
+					<ul class="filter-list">
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox7">
+							<label for="checkBox7"> <span class="check"></span> <span class="box"></span> $0.00 - $10,000.00  (26) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox8">
+							<label for="checkBox8"> <span class="check"></span> <span class="box"></span> $10,000.00 - $20,000.00  (2) </label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">COLOR</h4>
+				<div class="filters-col__collapse__content">
+					<ul class="filter-list">
+						<li> <a href="#"><span class="color-icon"><img src="images/colors/blue.png" alt=""/></span>Blue  (9)</a> </li>
+						<li> <a href="#"><span class="color-icon"><img src="images/colors/red.png" alt=""/></span>Red  (2)</a> </li>
+						<li> <a href="#"><span class="color-icon"><img src="images/colors/yellow.png" alt=""/></span>Yellow  (7)</a> </li>
+						<li> <a href="#"><span class="color-icon"><img src="images/colors/grey.png" alt=""/></span>Grey  (1)</a> </li>
+					</ul>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">Size</h4>
+				<div class="filters-col__collapse__content">
+					<ul class="filter-list">
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox13">
+							<label for="checkBox13"> <span class="check"></span> <span class="box"></span> 6 (XS)  (1) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox14">
+							<label for="checkBox14"> <span class="check"></span> <span class="box"></span> 8 (S)  (4) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox15">
+							<label for="checkBox15"> <span class="check"></span> <span class="box"></span> 10 (M)  (6) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox16">
+							<label for="checkBox16"> <span class="check"></span> <span class="box"></span> 12 (L)  (3) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox17">
+							<label for="checkBox17"> <span class="check"></span> <span class="box"></span> 14 (XL)  (5) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox18">
+							<label for="checkBox18"> <span class="check"></span> <span class="box"></span> S/M  (0) </label>
+						</li>
+						<li class="checkbox-group">
+							<input type="checkbox" id="checkBox19">
+							<label for="checkBox19"> <span class="check"></span> <span class="box"></span> M/L  (0) </label>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">Price Slider</h4>
+				<div class="filters-col__collapse__content">
+					<div id="priceSlider" class="price-slider"></div>
+				</div>
+			</div>
+			<div class="filters-col__collapse open">
+				<h4 class="filters-col__collapse__title text-uppercase">Popular tags</h4>
+				<div class="filters-col__collapse__content">
+					<ul class="tags-list">
+						<li><a href="#">Apparel</a></li>
+						<li><a href="#">Design</a></li>
+						<li><a href="#">Models</a></li>
+						<li><a href="#">Clothing</a></li>
+						<li><a href="#">Fashion industry</a></li>
+						<li><a href="#">Underwear</a></li>
+						<li><a href="#">Evening dresses</a></li>
+						<li><a href="#">Outerwear</a></li>
+						<li><a href="#">Handbags</a></li>
+						<li><a href="#">beauty</a></li>
+						<li><a href="#">swimwear</a></li>
+						<li><a href="#">New collections</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="filters-col__collapse hidden-xs">
+				<h4 class="filters-col__collapse__title text-uppercase">Sale Products</h4>
+				<div class="filters-col__collapse__content">
+					<div class="products-widget">
+						<div class="products-widget-carousel nav-dot">
+							<div class="products-widget__item">
+								<div class="products-widget__item__image pull-left"><a href="#"><img src="images/products/product-10.jpg" alt=""/></a></div>
+								<div class="products-widget__item__info">
+									<div class="products-widget__item__info__title">
+										<h2 class="text-uppercase"><a href="#">Fast Seconds Knit White</a></h2>
+									</div>
+									<div class="rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span></div>
+									<div class="price-box"><span class="price-box__new">$65.00</span> <span class="price-box__old">$84.00</span></div>
+								</div>
+							</div>
+							<div class="products-widget__item">
+								<div class="products-widget__item__image pull-left"><a href="#"><img src="images/products/product-7.jpg" alt=""/></a></div>
+								<div class="products-widget__item__info">
+									<div class="products-widget__item__info__title">
+										<h2 class="text-uppercase"><a href="#">Fast Seconds Knit White</a></h2>
+									</div>
+									<div class="rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span></div>
+									<div class="price-box"><span class="price-box__new">$65.00</span> <span class="price-box__old">$84.00</span></div>
+								</div>
+							</div>
+							<div class="products-widget__item">
+								<div class="products-widget__item__image pull-left"><a href="#"><img src="images/products/product-6.jpg" alt=""/></a></div>
+								<div class="products-widget__item__info">
+									<div class="products-widget__item__info__title">
+										<h2 class="text-uppercase"><a href="#">Fast Seconds Knit White</a></h2>
+									</div>
+									<div class="rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span></div>
+									<div class="price-box"><span class="price-box__new">$65.00</span> <span class="price-box__old">$84.00</span></div>
+								</div>
+							</div>
+							<div class="products-widget__item">
+								<div class="products-widget__item__image pull-left"><a href="#"><img src="images/products/product-11.jpg" alt=""/></a></div>
+								<div class="products-widget__item__info">
+									<div class="products-widget__item__info__title">
+										<h2 class="text-uppercase"><a href="#">Fast Seconds Knit White</a></h2>
+									</div>
+									<div class="rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span></div>
+									<div class="price-box"><span class="price-box__new">$65.00</span> <span class="price-box__old">$84.00</span></div>
+								</div>
+							</div>
+							<div class="products-widget__item">
+								<div class="products-widget__item__image pull-left"><a href="#"><img src="images/products/product-3.jpg" alt=""/></a></div>
+								<div class="products-widget__item__info">
+									<div class="products-widget__item__info__title">
+										<h2 class="text-uppercase"><a href="#">Fast Seconds Knit White</a></h2>
+									</div>
+									<div class="rating"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span></div>
+									<div class="price-box"><span class="price-box__new">$65.00</span> <span class="price-box__old">$84.00</span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="filters-col__collapse hidden-xs">
+				<h4 class="filters-col__collapse__title text-uppercase">Community Polls</h4>
+				<div class="filters-col__collapse__content">
+					<p class="text-uppercase"><strong>What is your favorite Magento feature?</strong></p>
+					<form id="pollForm" action="#">
+						<ul class="filter-list">
+							<li>
+								<label class="radio">
+								<input id="radio1" type="radio" name="radios" checked>
+								<span class="outer"><span class="inner"></span></span>Layered Navigation</label>
+							</li>
+							<li>
+								<label class="radio">
+								<input id="radio2" type="radio" name="radios">
+								<span class="outer"><span class="inner"></span></span>Price Rules</label>
+							</li>
+							<li>
+								<label class="radio">
+								<input id="radio3" type="radio" name="radios">
+								<span class="outer"><span class="inner"></span></span>Category Management</label>
+							</li>
+							<li>
+								<label class="radio">
+								<input id="radio4" type="radio" name="radios">
+								<span class="outer"><span class="inner"></span></span>Compare Products</label>
+							</li>
+						</ul>
+						<button type="submit" class="btn btn--wd btn--sm text-uppercase">Vote</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+				
+				
+				
+				
+         	{% for o in items_list %}
+             <div class="product-preview-wrapper category1 category2">
+                 <div class="product-preview">
+                     <div class="product-preview__image">
+                         <a href="product.html"><img  src="static/web/images/products/product-1.jpg" alt="testing image"/></a>
+                     </div>
+                     <div class="product-preview__info text-center">
+                         <div class="product-preview__info__btns"><a href="#" class="btn btn--round"><span class="icon-ecommerce"></span></a> <a href="quick-view.html" class="btn btn--round btn--dark btn-quickview" data-toggle="modal" data-target="#quickView"><span class="icon icon-eye"></span></a></div>
+                         <div class="product-preview__info__title">
+                             <h2><a href="#"> {{ o.name }} </a></h2>
+                         </div>
+                         <div class="price-box ">
+                         	<span class="price-box__new">${{ o.new_price }} </span>
+                         	<span class="price-box__old">${{ o.price }} </span>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}				
+				
+				
+			</div>
+{% endblock %}

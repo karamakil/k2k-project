@@ -1,0 +1,255 @@
+{% extends "admin/base.html" %} 
+{% load staticfiles%}
+
+{% block stylePage %}	
+<link rel="stylesheet" href="{% static 'admin/css/plugins/cropper/cropper.min.css' %}">
+{% endblock %}
+
+{% block content %}
+
+
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2>{{ category }}</h2>
+		<ol class="breadcrumb">
+			<li class="active"><strong>Add  Item</strong></li>
+		</ol>
+	</div>
+</div>
+
+<div class="wrapper wrapper-content  animated fadeInRight">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>
+						Item 
+					</h5>
+				</div>
+				<div class="ibox-content">
+				
+					<form action="{% url 'post_item_form' %}"  method="post" class="form-horizontal" id="add_item_form"  enctype="multipart/form-data">
+						{% csrf_token %}
+						
+				
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Category</label>
+							<div class="col-sm-9">
+								<select class="form-control " name="category">
+									<option value="">Select a Category</option>
+									{% for cat_obj in categories  %}
+									<option value="{{ cat_obj.id }}"  {%if cat_obj.id ==  item.category.id %}selected="selected"{%endif%} >{{ cat_obj.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">SubCategory</label>
+							<div class="col-sm-9">
+								<select class="form-control " name="sub_category">
+									<option value="">Select a SubCategory</option>
+									{% for sub_cat_obj in subcategory  %}
+									<option value="{{sub_cat_obj.id }}"  {%if sub_cat_obj.id ==  item.sub_category.id %}selected="selected"{%endif%} >{{ sub_cat_obj.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Name</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="name" value="{{ item.name | default_if_none:'' }}">
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Quantity</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="quantity" value="{{ item.quantity | default_if_none:'' }}">
+							</div>
+						</div>
+						
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Price</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="price" value="{{ item.price | default_if_none:'' }}">
+							</div>
+						</div>
+						
+												
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Discount Percentage</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" name="discount" value="{{ item.discount | default_if_none:'' }}" >
+							</div>
+						</div>
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Sizes</label>
+							<div class="col-sm-9">
+								<select class="selectpicker" multiple name='seleted_sizes' id="seleted_sizes">
+								    {% for size_obj in sizes_list  %}
+									<option value="{{ size_obj.id }}" >{{ size_obj.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Color</label>
+							<div class="col-sm-9">
+								<select class="selectpicker" multiple name='seleted_color' id="seleted_color">
+								    {% for color_ob in color  %}
+									<option value="{{ color_ob.id }}" >{{color_ob.name }}</option>
+									{% endfor %}
+								</select>
+							</div>
+						</div>
+						
+						
+						<div class="form-group col-sm-6">
+							<label class="col-sm-3 control-label">Description</label>
+							<div class="col-sm-9">
+								<textarea rows="4" cols="50" class="form-control" name="description" value="{{ item.description | default_if_none:'' }}" >
+								</textarea>
+							</div>
+						</div>
+						
+                        <div class="form-group col-sm-12">
+							<div class="hr-line-dashed"></div>
+						</div>
+
+						<div class="form-group col-sm-12">
+	      	                <div class="btn-group">
+				                 <label title="Upload image file" for="imgInp" class="btn btn-primary">
+				                      <input type="file" accept="image/*" name="image_file" id="imgInp" class="hide">
+				                     Upload new image
+				                 </label>
+				             </div>
+				              <img id="uploaded_image_preview" src="{{ item_img }}" alt="your image" style="width: 250px; height: auto; "/>
+			             </div>
+        						
+                        <div class="form-group col-sm-12">
+							<div class="hr-line-dashed"></div>
+						</div>
+						
+						<input type="text" name="id" value="{{ item.id }}"/>
+						<input type="text" name="oper" value="{{ operation }}"/>
+						
+						<div class="form-group">
+							<div class="col-sm-4 col-sm-offset-2">
+								<a href="{% url 'items'  %}" class="btn btn-white">Cancel</a>
+								<button class="btn btn-primary" type="submit">Save Changes</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %} 
+
+{% block scriptPage %}
+<script src="{% static 'admin/js/plugins/cropper/cropper.min.js' %}"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+
+<script>
+var add_item = {
+		init: function(){
+			add_item.init_form();
+			add_item.init_delete_item_image();
+			add_item.init_image_upload();
+			add_item.init_select_picker();
+			add_item.init_select_picker_color();
+		},
+		init_form : function(){
+			$("#add_item_form").validate({
+				errorPlacement: function(error, element) {
+		        	error.insertAfter(element)
+			    },
+				rules:{
+					category: "required",
+					SubCategory: "required",
+					name: "name",
+					quantity: "required",
+					price: "required",
+					discount: "discount",
+					size: "required",
+					color: "required",
+					description: "required",
+					image_file: "image_file",
+					
+				},
+				messages:{
+				}
+			});
+		},
+		init_delete_item_image: function(){//this function initailze the delete image event
+			$('.delete_item_images').click(function(){
+				var item_image_id = $(this).attr('data-row');
+				$.ajax({
+					url: "",
+					type: "GET",
+					data: {item_image_id:item_image_id},
+					beforeSend: function(){
+						//TODO: show loading
+					},
+					success: function (response) {
+						if(response.status=="OK"){
+							$("#content_image_item_"+item_image_id).parent().hide();
+						}
+					}
+				});
+			});	
+		},
+		
+		init_image_upload: function(){
+		    $("#imgInp").change(function(){
+		        var input = this;
+		        if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+		            reader.onload = function (e) {
+		                $('#uploaded_image_preview').attr('src', e.target.result);
+		            }
+		            reader.readAsDataURL(input.files[0]);
+		            $('#uploaded_image_preview').show();
+		            alert("test");
+		        }
+		    });
+		},
+		
+		init_select_picker: function(){
+			$('.selectpicker').selectpicker({
+			  size: 4
+			});
+			$('#seleted_sizes').selectpicker('val', {{ selected_sizes }});	
+		}
+		
+		init_select_picker_color: function(){
+			$('.selectpicker').selectpicker({
+			  size: 4
+			});
+			$('#seleted_color').selectpicker('val', {{ seleted_color }});	
+		}
+		
+		
+		
+		
+};
+$(function(){
+	add_item.init();
+});
+
+</script>
+{% endblock %}
